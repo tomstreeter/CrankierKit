@@ -58,8 +58,9 @@ is the public web root directory.
 1. The public web root directory is called `/public_html` on Siteground hosting. You may need to adjust this to match whatever convention your hossting provider uses.
 
 1. Two configuration files are included in `/site/config`.  
-	* `config.php` allows the panel to be installed on a remote server and changes the page slug for the panel from `myexample.com/panel` to `myexample.com/knockknock`. Seek professional help is that's the slug you want to use.
-	* `config.crankykit.test.php` turns on debugging, but only for hosts that answers to the name `crankykit.test` (spoiler alert, yours probably doesn't). Make it your own by changing the name to something that works on your development setup.
+	* `config.php` allows the panel to be installed on a remote server.
+	* `config.crankierkit.test.php` turns on debugging, but only for hosts that answers to the name `crankierkit.test` (spoiler alert, yours probably doesn't). Make it your own by changing the name to something that works on your development setup.
+    * `config.php` checks to see if an option named `standby` is `true` or `false.` If its value is `true`, the directory `/content/standby/` will be designated the site's home directory.  If it's either not set or `false,` the `/content/home/` will be the home directory (as is the case regular PlainKit installations). This allows you to do things like set your production server to standby while still being able to push new content from the development server. The best place to set `standby` to `true` is in your site's version of the `config.crankierkit.test.php` file. When initially installed, `standby` is set to `true`. 
 1. The `.htaccess` file is located in the public web root directory.  It's the "stock" Kirby `.htaccess` file with the addition of the directive 
 		```
 	Header set Cache-Control "no cache, private"
@@ -81,6 +82,8 @@ is the public web root directory.
 
 1. A `/storage` directory has been added as a sibling to `/content` and `/site` It contain the directories that the web server must have write permissions for: `/accounts`, `/cache`, and `/sessions`.
    
-1. An `/assets` directory has been added to the public web root to hold CSS, JS, fonts, and graphics. A basic CSS scaffold is included. I'm a fan of Andy Bell's [CUBE CSS](https://cube.fyi/) methodology and my scaffold is more or less based on that. 
+1. An `/assets` directory has been added to the public web root to hold CSS, JS, fonts, and graphics. A basic CSS scaffold is included. I'm a fan of Andy Bell's [CUBE CSS](https://cube.fyi/) methodology and my scaffold is more or less based on that.
+
+1. The `default.php` template is modified to use a templating scheme I use. That scheme relies on `site/snippets/layout/` and `site/snippets/components/` to build pages.
 
 
