@@ -1,0 +1,45 @@
+/*===============================
+*            Utility            *
+===============================*/
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.italic {
+	font-style: italic;
+}
+
+figure.left {
+	float: left;
+}
+
+figure.center {
+	margin-inline: auto;
+}
+
+figure.right {
+	float: right;
+}
+
+figure.small {
+	inline-size: 33%;
+}
+
+figure.medium {
+	inline-size: 50%;
+}
+
+figure.large {
+	inline-size: 66%;
+}
+
+figure.full {
+	inline-size: 100%;
+	float: clear;
+}
+
+/*=====  End of Utility  ======*/

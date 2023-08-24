@@ -1,0 +1,75 @@
+# System files
+# ------------
+Icon
+.DS_Store
+
+# README Previews
+# ---------------
+/README.html
+
+# Temporary files
+# ---------------
+
+/public_html/media/*
+!public_html/media/index.html
+
+# Lock files
+# ---------------
+.lock
+/composer.lock
+
+# files of Composer dependencies that are not needed
+/vendor/**/.*
+/vendor/**/*.json
+/vendor/**/*.txt
+/vendor/**/*.md
+/vendor/**/*.yml
+/vendor/**/*.yaml
+/vendor/**/*.xml
+/vendor/**/*.dist
+/vendor/**/readme.php
+/vendor/**/LICENSE
+/vendor/**/COPYING
+/vendor/**/VERSION
+/vendor/**/docs/*
+/vendor/**/example/*
+/vendor/**/examples/*
+/vendor/**/test/*
+/vendor/**/tests/*
+/vendor/**/php4/*
+
+# Editors
+# (sensitive workspace files)
+# ---------------------------
+*.sublime-workspace
+/.vscode
+/.idea
+
+# -------------SECURITY-------------
+# NEVER publish these files via Git!
+# -------------SECURITY-------------
+
+# Cache Files
+# ---------------
+
+/storage/cache/*
+!/storage/cache/index.html
+
+# Accounts
+# ---------------
+
+/storage/accounts/*
+!/storage/accounts/index.html
+
+# Sessions
+# ---------------
+
+/storage/sessions/*
+!/storage/sessions/index.html
+
+# License
+# ---------------
+
+/site/config/.license
+listing*.txt
+/config.codekit3

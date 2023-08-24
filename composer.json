@@ -1,0 +1,28 @@
+{
+	"name": "crankybearmedia/crankierkit",
+	"description": "An opinionated scaffold of a Kirby CMS PlainKit project using Composer for PHP dependencies.",
+	"type": "project",
+	"keywords": [
+		"kirby",
+		"kirby cms",
+		"kirby3"
+	],
+	"license": "GPL-3.0",
+	"require": {
+		"php": ">=8.0.0 <8.2.0",
+		"getkirby/cms": "^3.0",
+		"genxbe/kirby3-ray": "^2.0"
+	},
+	"extra": {
+		"kirby-cms-path": "kirby"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"getkirby/composer-installer": true
+		}
+	},
+	"require-dev": {
+		"lukaskleinschmidt/kirby-types": "^1.1"
+	}
+}

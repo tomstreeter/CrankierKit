@@ -1,0 +1,194 @@
+/*==============================
+*            Global            *
+==============================*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+	--text-color: var(--color-black);
+	--background-color: var(--color-white);
+	--primary-color: var(--color-primary-light);
+	--secondary-color: var(--color-secondary-light);
+	--attention-color: var(--color-attention-light);
+	--accent-color: var(--color-accent-light);
+	--info-color: var(--color-info-light);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: var(--color-white);
+		--background-color: var(--color-black);
+		--primary-color: var(--color-primary-dark);
+		--secondary-color: var(--color-secondary-dark);
+		--attention-color: var(--color-attention-dark);
+		--accent-color: var(--color-accent-dark);
+		--info-color: var(--color-info-dark);
+	}
+}
+
+
+html {
+	line-height: 1.5;
+}
+
+* {
+	max-inline-size: 70ch;
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+	max-inline-size: none;
+}
+
+/* Remove default margin */
+body,
+div,
+nav,
+main,
+header,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+hr,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+li {
+	margin: 0;
+}
+
+body {
+	color: var(--text-color);
+	background-color: var(--background-color);
+	text-rendering: optimizeSpeed;
+	font-family: var(--sans-serif);
+	min-block-size: 100vh;
+	min-inline-size: 100svw;
+	margin-block: 0;
+	margin-inline: auto;
+}
+
+
+
+img,
+picture,
+figure {
+	max-inline-size: 100%;
+	display: block;
+}
+
+
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	-webkit-text-decoration-skip: ink;
+	text-decoration-skip-ink: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--serif);
+	max-inline-size: 55ch;
+	font-weight: 700;
+	text-transform: capitalize;
+}
+
+h1 {
+	font-size: var(--step-4);
+	line-height: var(--step-5);
+}
+
+h2 {
+	font-size: var(--step-3);
+	line-height: var(--step-4);
+}
+
+h3 {
+	font-size: var(--step-2);
+	line-height: var(--step-3);
+}
+
+h4 {
+	font-size: var(--step-1);
+	line-height: var(--step-2);
+}
+
+h5 {
+	font-size: var(--step-0);
+	line-height: var(--step-1);
+}
+
+h6 {
+	font-size: var(--step--1);
+	line-height: var(--step-0);
+}
+
+:is(h1, h2, h3, h4, h5)+ :is(h2, h3, h4, h5, h6) {
+	font-style: italic;
+}
+
+hr {
+	display: block;
+	inline-size: 100%;
+	color: var(--color-accent);
+	margin-block: var(--space-s-m);
+}
+
+
+:focus {
+	outline: max(1px, 0.1em) dashed currentColor;
+	outline-offset: max(2px, 0.15em);
+	outline-width: 3px;
+}
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+:focus-visible {
+	outline: max(1px, 0.1em) dashed currentColor;
+	outline-offset: max(2px, 0.15em);
+}
+
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		-webkit-animation-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		-webkit-animation-iteration-count: 1 !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+}
+
+/*=====  End of Global  ======*/
