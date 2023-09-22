@@ -5,38 +5,40 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-	--text-color: var(--color-black);
-	--background-color: var(--color-white);
-	--primary-color: var(--color-primary-light);
-	--secondary-color: var(--color-secondary-light);
-	--attention-color: var(--color-attention-light);
-	--accent-color: var(--color-accent-light);
-	--info-color: var(--color-info-light);
+  --text-color: var(--color-black);
+  --background-color: var(--color-white);
+  --primary-color: var(--color-primary-light);
+  --secondary-color: var(--color-secondary-light);
+  --attention-color: var(--color-attention-light);
+  --accent-color: var(--color-accent-light);
+  --info-color: var(--color-info-light);
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--text-color: var(--color-white);
-		--background-color: var(--color-black);
-		--primary-color: var(--color-primary-dark);
-		--secondary-color: var(--color-secondary-dark);
-		--attention-color: var(--color-attention-dark);
-		--accent-color: var(--color-accent-dark);
-		--info-color: var(--color-info-dark);
-	}
+  :root {
+    --text-color: var(--color-white);
+    --background-color: var(--color-black);
+    --primary-color: var(--color-primary-dark);
+    --secondary-color: var(--color-secondary-dark);
+    --attention-color: var(--color-attention-dark);
+    --accent-color: var(--color-accent-dark);
+    --info-color: var(--color-info-dark);
+  }
 }
 
 
 html {
-	line-height: 1.5;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 * {
-	max-inline-size: 70ch;
+  max-inline-size: 70ch;
 }
 
 html,
@@ -46,7 +48,7 @@ header,
 nav,
 main,
 footer {
-	max-inline-size: none;
+  max-inline-size: none;
 }
 
 /* Remove default margin */
@@ -71,18 +73,17 @@ dd,
 ul,
 ol,
 li {
-	margin: 0;
+  margin: 0;
 }
 
 body {
-	color: var(--text-color);
-	background-color: var(--background-color);
-	text-rendering: optimizeSpeed;
-	font-family: var(--sans-serif);
-	min-block-size: 100vh;
-	min-inline-size: 100svw;
-	margin-block: 0;
-	margin-inline: auto;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  text-rendering: optimizeSpeed;
+  font-family: var(--sans-serif);
+  min-block-size: 100vh;
+  margin-block: 0;
+  line-height: 1.5
 }
 
 
@@ -90,16 +91,22 @@ body {
 img,
 picture,
 figure {
-	max-inline-size: 100%;
-	display: block;
+  max-inline-size: 100%;
+  display: block;
 }
 
 
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-	-webkit-text-decoration-skip: ink;
-	text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  color: curretColor;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
 }
 
 h1,
@@ -108,86 +115,105 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--serif);
-	max-inline-size: 55ch;
-	font-weight: 700;
-	text-transform: capitalize;
+  font-family: var(--serif);
+  max-inline-size: 55ch;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-wrap: balance;
 }
 
 h1 {
-	font-size: var(--step-4);
-	line-height: var(--step-5);
+  font-size: var(--step-4);
+  line-height: var(--step-5);
 }
 
 h2 {
-	font-size: var(--step-3);
-	line-height: var(--step-4);
+  font-size: var(--step-3);
+  line-height: var(--step-4);
 }
 
 h3 {
-	font-size: var(--step-2);
-	line-height: var(--step-3);
+  font-size: var(--step-2);
+  line-height: var(--step-3);
 }
 
 h4 {
-	font-size: var(--step-1);
-	line-height: var(--step-2);
+  font-size: var(--step-1);
+  line-height: var(--step-2);
 }
 
 h5 {
-	font-size: var(--step-0);
-	line-height: var(--step-1);
+  font-size: var(--step-0);
+  line-height: var(--step-1);
 }
 
 h6 {
-	font-size: var(--step--1);
-	line-height: var(--step-0);
+  font-size: var(--step--1);
+  line-height: var(--step-0);
 }
 
 :is(h1, h2, h3, h4, h5)+ :is(h2, h3, h4, h5, h6) {
-	font-style: italic;
+  font-style: italic;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
 }
 
 hr {
-	display: block;
-	inline-size: 100%;
-	color: var(--color-accent);
-	margin-block: var(--space-s-m);
+  display: block;
+  inline-size: 100%;
+  color: var(--color-accent);
+  margin-block: var(--space-s-m);
 }
 
 
 :focus {
-	outline: max(1px, 0.1em) dashed currentColor;
-	outline-offset: max(2px, 0.15em);
-	outline-width: 3px;
+  outline: max(1px, 0.1em) dashed currentColor;
+  outline-offset: max(2px, 0.15em);
+  outline-width: 3px;
 }
 
 :focus:not(:focus-visible) {
-	outline: none;
+  outline: none;
 }
 
 :focus-visible {
-	outline: max(1px, 0.1em) dashed currentColor;
-	outline-offset: max(2px, 0.15em);
+  outline: max(1px, 0.1em) dashed currentColor;
+  outline-offset: max(2px, 0.15em);
 }
 
 
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-	html:focus-within {
-		scroll-behavior: auto;
-	}
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 
-	*,
-	*::before,
-	*::after {
-		-webkit-animation-duration: 0.01ms !important;
-		animation-duration: 0.01ms !important;
-		-webkit-animation-iteration-count: 1 !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 
 }
 
