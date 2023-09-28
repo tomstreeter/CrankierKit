@@ -9,6 +9,7 @@ Icon
 
 # Temporary files
 # ---------------
+/.nova
 
 /public_html/media/*
 !public_html/media/index.html
