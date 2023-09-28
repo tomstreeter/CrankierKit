@@ -27,7 +27,7 @@
     "lukaskleinschmidt/kirby-types": "^1.1"
   },
   "scripts": {
-    "post-create-project-cmd": [
+    "post-install-cmd": [
       "kirby types:create"
     ]
   }

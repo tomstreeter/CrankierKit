@@ -9,7 +9,6 @@ Icon
 
 # Temporary files
 # ---------------
-/.nova
 
 /public_html/media/*
 !public_html/media/index.html
@@ -45,6 +44,7 @@ Icon
 *.sublime-workspace
 /.vscode
 /.idea
+/.nova
 
 # -------------SECURITY-------------
 # NEVER publish these files via Git!
