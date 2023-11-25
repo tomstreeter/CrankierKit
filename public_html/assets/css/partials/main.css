@@ -1,0 +1,36 @@
+/**
+ *
+ * This baseline CSS starter is based extensively on stuff I've learned from:
+ *
+ * Temani Afif
+ * Rachel Andrews,
+ * Andy Bell,
+ * Stephanie Eckles,
+ * Sara Joy
+ * Jeremy Keith
+ * Eric Meyer
+ * Heydon Pickering,
+ * Adrian Roselli, though probably not thoroughly enough.
+ * Jen Simmons,
+ * Jeffery Zeldman
+ *
+ * The point here is that I didn't make any of this up. I'm stealing from some of the best. Stuff that works is thanks to them. Stuff that's broken is on me.
+ *
+ * -----------------
+ * Table of Contents
+ * -----------------
+ * 1. Design Tokens
+ * 2. Global Rules
+ * 3. Composition Rules
+ * 4. Utility Rules
+ * 5. Block Rules
+ * 6. Exception Rules
+ *
+ */
+
+@import "./partials/_tokens.css" layer(tokens);
+@import "./partials/_global.css" layer(global);
+@import "./partials/_composition.css" layer(composition);
+@import "./partials/_block.css" layer(block);
+@import "./partials/_utility.css" layer(utility);
+@import "./partials/_exception.css" layer(exception);

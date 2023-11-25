@@ -5,12 +5,12 @@
   "keywords": [
     "kirby",
     "kirby cms",
-    "kirby3"
+    "kirby4"
   ],
   "license": "GPL-3.0",
   "require": {
     "php": ">=8.0.0 <8.2.0",
-    "getkirby/cms": "^3.0",
+    "getkirby/cms": "4.0.0-rc-2",
     "genxbe/kirby3-ray": "^2.0",
     "johannschopplich/kirbylog": "^1.4"
   },
@@ -24,7 +24,7 @@
     }
   },
   "require-dev": {
-    "lukaskleinschmidt/kirby-types": "^1.1"
+    "lukaskleinschmidt/kirby-types": "^2.0"
   },
   "scripts": {
     "post-install-cmd": [

@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'debug' => true,
-    'standby'=> true,
-
+    'debug'   => true,
+    'standby' => true,
 ];
