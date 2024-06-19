@@ -317,9 +317,16 @@
 	"field.blocks.quote.citation.placeholder": "oleh …",
 	"field.blocks.text.name": "Teks",
 	"field.blocks.text.placeholder": "Teks …",
+	"field.blocks.video.autoplay": "Autoplay",
 	"field.blocks.video.caption": "Deskripsi",
+	"field.blocks.video.controls": "Controls",
+	"field.blocks.video.location": "Lokasi",
+	"field.blocks.video.loop": "Loop",
+	"field.blocks.video.muted": "Muted",
 	"field.blocks.video.name": "Video",
 	"field.blocks.video.placeholder": "Masukkan URL video",
+	"field.blocks.video.poster": "Poster",
+	"field.blocks.video.preload": "Preload",
 	"field.blocks.video.url.label": "URL Video",
 	"field.blocks.video.url.placeholder": "https://youtube.com/?v=",
 
@@ -379,7 +386,6 @@
 	"installation.issues.mbstring": "Ekstensi <code>MB String</code> diperlukan",
 	"installation.issues.media": "Folder <code>/media</code> tidak ada atau tidak dapat ditulis",
 	"installation.issues.php": "Pastikan Anda menggunakan <code>PHP 8+</code>",
-	"installation.issues.server": "Kirby memerlukan <code>Apache</code>, <code>Nginx</code>, atau <code>Caddy</code>",
 	"installation.issues.sessions": "Folder <code>/site/sessions</code> tidak ada atau tidak dapat ditulis",
 
 	"language": "Bahasa",
@@ -611,6 +617,8 @@
 	"stats.empty": "Tidak ada laporan",
 	"status": "Status",
 
+	"system.info.copy": "Copy info",
+	"system.info.copied": "System info copied",
 	"system.issues.content": "Folder konten nampaknya terekspos",
 	"system.issues.eol.kirby": "Versi instalasi Kirby Anda sudah mencapai akhir dan tidak akan lagi mendapat pembaruan keamanan",
 	"system.issues.eol.plugin": "Versi instalasi plugin { plugin } Anda sudah mencapai akhir dan tidak akan lagi mendapatkan pembaruan keamanan",

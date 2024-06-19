@@ -464,7 +464,7 @@ class Dom
 			$namespaceUri = null;
 			$itemLocal    = $item;
 			if (Str::contains($item, ':') === true) {
-				list($namespaceName, $itemLocal) = explode(':', $item);
+				[$namespaceName, $itemLocal] = explode(':', $item);
 				$namespaceUri = $allowedNamespaces[$namespaceName] ?? null;
 			} else {
 				// list items without namespace are from the default namespace
@@ -710,7 +710,7 @@ class Dom
 			return $options;
 		}
 
-		$options = array_merge([
+		return [
 			'allowedAttrPrefixes'   => [],
 			'allowedAttrs'          => true,
 			'allowedDataUris'       => true,
@@ -724,11 +724,9 @@ class Dom
 			'doctypeCallback'       => null,
 			'elementCallback'       => null,
 			'urlAttrs'              => ['href', 'src', 'xlink:href'],
-		], $options);
-
-		$options['_normalized'] = true;
-
-		return $options;
+			...$options,
+			'_normalized'           => true
+		];
 	}
 
 	/**

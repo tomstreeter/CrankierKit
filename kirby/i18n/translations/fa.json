@@ -317,9 +317,16 @@
 	"field.blocks.quote.citation.placeholder": "by …",
 	"field.blocks.text.name": "Text",
 	"field.blocks.text.placeholder": "Text …",
+	"field.blocks.video.autoplay": "Autoplay",
 	"field.blocks.video.caption": "Caption",
+	"field.blocks.video.controls": "Controls",
+	"field.blocks.video.location": "Location",
+	"field.blocks.video.loop": "Loop",
+	"field.blocks.video.muted": "Muted",
 	"field.blocks.video.name": "Video",
 	"field.blocks.video.placeholder": "Enter a video URL",
+	"field.blocks.video.poster": "Poster",
+	"field.blocks.video.preload": "Preload",
 	"field.blocks.video.url.label": "Video-URL",
 	"field.blocks.video.url.placeholder": "https://youtube.com/?v=",
 
@@ -379,7 +386,6 @@
 	"installation.issues.mbstring": "افزونه <code>MB String</code> مورد نیاز است",
 	"installation.issues.media": "پوشه <code>/media</code> موجود نیست یا قابل نوشتن نیست",
 	"installation.issues.php": "لطفا از پی‌اچ‌پی 8 یا بالاتر استفاده کنید",
-	"installation.issues.server": "کربی نیاز به <code>Apache</code>، <code>Nginx</code> یا <code>Caddy</code> دارد",
 	"installation.issues.sessions": "پوشه <code>/site/sessions</code> وجود ندارد یا قابل نوشتن نیست",
 
 	"language": "\u0632\u0628\u0627\u0646",
@@ -611,6 +617,8 @@
 	"stats.empty": "No reports",
 	"status": "وضعیت",
 
+	"system.info.copy": "Copy info",
+	"system.info.copied": "System info copied",
 	"system.issues.content": "The content folder seems to be exposed",
 	"system.issues.eol.kirby": "Your installed Kirby version has reached end-of-life and will not receive further security updates",
 	"system.issues.eol.plugin": "Your installed version of the { plugin } plugin is has reached end-of-life and will not receive further security updates",

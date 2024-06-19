@@ -56,13 +56,11 @@ class Assets
 	 */
 	public function css(): array
 	{
-		$css = A::merge(
-			[
-				'index'   => $this->url . '/css/style.min.css',
-				'plugins' => $this->plugins->url('css')
-			],
-			$this->custom('panel.css')
-		);
+		$css = [
+			'index'   => $this->url . '/css/style.min.css',
+			'plugins' => $this->plugins->url('css'),
+			...$this->custom('panel.css')
+		];
 
 		// during dev mode we do not need to load
 		// the general stylesheet (as styling will be inlined)
@@ -121,35 +119,72 @@ class Assets
 	 * Returns array of favicon icons
 	 * based on config option
 	 *
+	 * @todo Deprecate `url` option in v5, use `href` option instead
+	 * @todo Deprecate `rel` usage as array key in v5, use `rel` option instead
+	 *
 	 * @throws \Kirby\Exception\InvalidArgumentException
 	 */
 	public function favicons(): array
 	{
 		$icons = $this->kirby->option('panel.favicon', [
-			'apple-touch-icon' => [
-				'type' => 'image/png',
-				'url'  => $this->url . '/apple-touch-icon.png',
+			[
+				'rel'   => 'apple-touch-icon',
+				'type'  => 'image/png',
+				'href'  => $this->url . '/apple-touch-icon.png'
 			],
-			'alternate icon' => [
-				'type' => 'image/png',
-				'url'  => $this->url . '/favicon.png',
+			[
+				'rel'   => 'alternate icon',
+				'type'  => 'image/png',
+				'href'  => $this->url . '/favicon.png'
 			],
-			'shortcut icon' => [
-				'type' => 'image/svg+xml',
-				'url'  => $this->url . '/favicon.svg',
+			[
+				'rel'   => 'shortcut icon',
+				'type'  => 'image/svg+xml',
+				'href'  => $this->url . '/favicon.svg'
+			],
+			[
+				'rel'   => 'apple-touch-icon',
+				'type'  => 'image/png',
+				'href'  => $this->url . '/apple-touch-icon-dark.png',
+				'media' => '(prefers-color-scheme: dark)'
+			],
+			[
+				'rel'   => 'alternate icon',
+				'type'  => 'image/png',
+				'href'  => $this->url . '/favicon-dark.png',
+				'media' => '(prefers-color-scheme: dark)'
 			]
 		]);
 
 		if (is_array($icons) === true) {
-			return $icons;
+			// normalize options
+			foreach ($icons as $rel => &$icon) {
+				// TODO: remove this backward compatibility check in v6
+				if (isset($icon['url']) === true) {
+					$icon['href'] = $icon['url'];
+					unset($icon['url']);
+				}
+
+				// TODO: remove this backward compatibility check in v6
+				if (is_string($rel) === true && isset($icon['rel']) === false) {
+					$icon['rel'] = $rel;
+				}
+
+				$icon['href']  = Url::to($icon['href']);
+				$icon['nonce'] = $this->nonce;
+			}
+
+			return array_values($icons);
 		}
 
 		// make sure to convert favicon string to array
 		if (is_string($icons) === true) {
 			return [
-				'shortcut icon' => [
-					'type' => F::mime($icons),
-					'url'  => $icons,
+				[
+					'rel'   => 'shortcut icon',
+					'type'  => F::mime($icons),
+					'href'  => Url::to($icons),
+					'nonce' => $this->nonce
 				]
 			];
 		}
@@ -164,8 +199,8 @@ class Assets
 	 */
 	public function icons(): string
 	{
-		$dir  = $this->kirby->root('panel') . '/';
-		$dir .= $this->dev ? 'public' : 'dist';
+		$dir   = $this->kirby->root('panel') . '/';
+		$dir  .= $this->dev ? 'public' : 'dist';
 		$icons = F::read($dir . '/img/icons.svg');
 		$icons = preg_replace('/<!--(.|\s)*?-->/', '', $icons);
 		return $icons;
@@ -176,64 +211,55 @@ class Assets
 	 */
 	public function js(): array
 	{
-		$js = A::merge(
-			[
-				'vue' => [
-					'nonce' => $this->nonce,
-					'src'   => $this->url . '/js/vue.min.js'
-				],
-				'vendor'       => [
-					'nonce' => $this->nonce,
-					'src'   => $this->url . '/js/vendor.min.js',
-					'type'  => 'module'
-				],
-				'pluginloader' => [
-					'nonce' => $this->nonce,
-					'src'   => $this->url . '/js/plugins.js',
-					'type'  => 'module'
-				],
-				'plugins'      => [
-					'nonce' => $this->nonce,
-					'src'   => $this->plugins->url('js'),
-					'defer' => true
-				]
+		$js = [
+			'vue' => [
+				'nonce' => $this->nonce,
+				'src'   => $this->url . '/js/vue.min.js'
 			],
-			A::map($this->custom('panel.js'), fn ($src) => [
+			'vendor' => [
+				'nonce' => $this->nonce,
+				'src'   => $this->url . '/js/vendor.min.js',
+				'type'  => 'module'
+			],
+			'pluginloader' => [
+				'nonce' => $this->nonce,
+				'src'   => $this->url . '/js/plugins.js',
+				'type'  => 'module'
+			],
+			'plugins' => [
+				'nonce' => $this->nonce,
+				'src'   => $this->plugins->url('js'),
+				'defer' => true
+			],
+			...A::map($this->custom('panel.js'), fn ($src) => [
 				'nonce' => $this->nonce,
 				'src'   => $src,
 				'type'  => 'module'
 			]),
-			[
-				'index' => [
-					'nonce' => $this->nonce,
-					'src'   => $this->url . '/js/index.min.js',
-					'type'  => 'module'
-				],
-			]
-		);
+			'index' => [
+				'nonce' => $this->nonce,
+				'src'   => $this->url . '/js/index.min.js',
+				'type'  => 'module'
+			],
+		];
 
 
 		// during dev mode, add vite client and adapt
 		// path to `index.js` - vendor does not need
 		// to be loaded in dev mode
 		if ($this->dev === true) {
+			// load the non-minified index.js, remove vendor script and
+			//  development version of Vue
+			$js['vendor']['src'] = null;
+			$js['index']['src']  = $this->url . '/src/index.js';
+			$js['vue']['src']    = $this->url . '/node_modules/vue/dist/vue.js';
+
+			// add vite dev client
 			$js['vite'] = [
 				'nonce' => $this->nonce,
 				'src'   => $this->url . '/@vite/client',
 				'type'  => 'module'
 			];
-
-			$js['index'] = [
-				'nonce' => $this->nonce,
-				'src'   => $this->url . '/src/index.js',
-				'type'  => 'module'
-			];
-
-			// load the development version of Vue
-			$js['vue']['src'] = $this->url . '/node_modules/vue/dist/vue.js';
-
-			// remove the vendor script
-			$js['vendor']['src'] = null;
 		}
 
 		return array_filter($js, fn ($js) => empty($js['src']) === false);

@@ -317,9 +317,16 @@
 	"field.blocks.quote.citation.placeholder": "Por ...",
 	"field.blocks.text.name": "Texto",
 	"field.blocks.text.placeholder": "Texto ...",
+	"field.blocks.video.autoplay": "Autoplay",
 	"field.blocks.video.caption": "Leyenda",
+	"field.blocks.video.controls": "Controls",
+	"field.blocks.video.location": "Ubicación",
+	"field.blocks.video.loop": "Loop",
+	"field.blocks.video.muted": "Muted",
 	"field.blocks.video.name": "Video",
 	"field.blocks.video.placeholder": "Introduce la URL de un vídeo",
+	"field.blocks.video.poster": "Poster",
+	"field.blocks.video.preload": "Preload",
 	"field.blocks.video.url.label": "Vídeo-URL",
 	"field.blocks.video.url.placeholder": "https://youtube.com/?v=",
 
@@ -379,7 +386,6 @@
 	"installation.issues.mbstring": "La extension <code>MB String</code> es requerida",
 	"installation.issues.media": "La carpeta <code>/media</code> no existe o no se puede escribir",
 	"installation.issues.php": "Asegurese de estar usando <code>PHP 8+</code>",
-	"installation.issues.server": "Kirby requiere <code>Apache</code>, <code>Nginx</code> o <code>Caddy</code>",
 	"installation.issues.sessions": "La carpeta <code>/site/sessions</code> no existe o no se puede escribir",
 
 	"language": "Idioma",
@@ -611,6 +617,8 @@
 	"stats.empty": "Sin informes",
 	"status": "Estado",
 
+	"system.info.copy": "Copy info",
+	"system.info.copied": "System info copied",
 	"system.issues.content": "La carpeta content parece estar expuesta",
 	"system.issues.eol.kirby": "La versión de Kirby que tienes instalada ha llegado al final de su vida útil y no recibirá más actualizaciones de seguridad.",
 	"system.issues.eol.plugin": "La versión del plugin { plugin } que tienes instalada ha llegado al final de su vida útil y no recibirá más actualizaciones de seguridad.",
